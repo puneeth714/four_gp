@@ -1,0 +1,17 @@
+numpy
+scipy
+TA-Lib
+ccxt
+pandas_ta
+loguru
+scipy
+pandas
+cython
+scikit-learn
+zigzag
+matplotlib
+mpl_finance
+python-dotenv
+tabulate
+hypercorn
+fastapi

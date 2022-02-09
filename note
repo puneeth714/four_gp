@@ -1,0 +1,397 @@
+Trend down to up:                                                                               down to up      
+        * previous candle red, present candle is green or step one more back - candle                   --->  0.2           0.1 and 0.1
+        * RSI can be below 30 or between 38 and 30                           - RSI                 --->  0.2           0.2 or 0.1
+        * Macd hist previous is less than present and previous one are negative - Macd                --->  0.1           0.05 and 0.05
+        * aroon green indicator present greater than previous                    -Aroon               --->  0.05          
+        * aroon red indicator   present less   than previous                     -Aroon               --->  0.05
+        * ema_short is greater than ema_long                                     -Ema               --->  0.2
+        -> Informative signal :
+            * previous candle have touched the resistance level or touched the ema200 level -rs    --->  0.1           0.1 or 0.05
+            * present value is less than ema200 or ema100                                   -rs ema     --->  0.1           0.1 or 0.05
+
+Trending Up:
+        * previous candle is green and present candle is green                                  --->  0.1
+        * RSI is between 40 and 70                                                              --->  0.1
+        * Macd hist previous is lesser than present and previous one are positive               --->  0.1
+        * present candle is green(bullish)(optional)                                            --->  0.05
+        * previous candle is green(bullish)(optional)                                           --->  0.05
+        * ema_short is lesser than ema_long                                                     --->  0.15
+        -> Informative signal :
+            * previous candles touched resistance level not support level                       --->  0.05
+            * present value is greater than ema200 or ema100         take one                   --->  0.05
+
+Trend Up to down:
+        * previous candle is green and present candle is red                                    --->  0.0
+        * RSI is above 70  or above 67                                                          --->  0.0
+        * Macd hist previous is greater than present and previous one are positive              --->  0.0
+        * present candle is red(bearish)(optional)                                              --->  0.0
+        * previous candle is green(bullish)(optional)                                           --->  0.0
+        * ema_short is lesser than ema_long                                                     --->  0.0
+        -> Informative signal :
+            * previous candle touched support level not resistance level                        --->  0.0
+            * present value is less than ema200 or ema100           take one                    --->  0.0
+
+Trending down:
+        * previous candle is red and present candle is red                                      --->  0.05
+        * RSI is below 70 or below 40                                                           --->  0.05
+        * Macd hist previous is greater than present and previous one are negative              --->  0.05
+        * present candle is red(bearish)(optional)                                              --->  0.05
+        * previous candle is red(bearish)(optional)                                             --->  0.05
+        * ema_short is lesser than ema_long                                                     --->  0.05
+        -> Informative signal :
+            * previous candles touched resistance level not support level                       --->  0.02
+            * present value is less than ema200 or ema100         take one                      --->  0.03
+
+
+
+
+
+Database        :
+      Tables    : * Kline 
+                        Naming conventions : Kline_SymbolName_timeframe
+                        Tables columns     : Timestamp , Open , High , Low , Close , Volume
+                  * Indicators
+                        Naming conventions : Indicators_SymbolName_TimeFrame
+                        Tables columns     : Timestamp , CreationTime , IndicatorsName , Val(s) [If more than one value make it as a list ]
+                  * Ticks
+                        Naming conventions : Ticks_SymbolName
+                        Tables columns     : Timestamp , Val(s) [If more than one value make it as a list ]
+                  * Signals
+                        Naming conventions : SymbolName
+                        Tables columns     : CreationTime , Buy[ A list of prices for which the signal is buy] , Sell[ A list of prices for which the signal is sell],
+                                             StopLoss[ A list of prices for which the signal is StopLoss] , TakeProfit[ A list of prices for which the signal is takeProfit]
+                  * Depth_snapshot
+                        Naming conventions : Depth_snapshot_SymbolName_TimeFrame
+                        Tables columns     : CreationTime , Price , Quantity , Total_Quantity , Total_Value , Total_Base_Quantity , Total_Base_Value , Total_Quote_Quantity , Total_Quote_Value , Is_Buy_Order , Is_Best_Price_Match , Time_Stamp
+                  * Logging
+                        Naming conventions : Logging
+                        Tables columns     : TimeStamp , CreationTime , Log_Type , Log_Message
+                  * Results
+                        Naming conventions : Results_SymbolName
+                        Tables columns     : CreationTime , pnlOverall , Status , TimeStamp
+            
+CreateTables class parameters:
+            database_connection, market_pairs[list] , timeframe[list],drop[bool]
+            member functions : 
+                  check if database_connection is a sqlite3.Connection type or is a file path or None (If none use default configuration)
+                  make_tables:      loop_through market_pairs and timeframe
+                  naming_convention:create a table name with naming convention using market_pair and timeframe form make_tables
+                  check_tables:     check the named tables are present or not
+                                          if exists continue
+                                          else create the table
+                  create_tables:    create table using database_connection
+                  drop_and_create:  if drop is True drop all the tables and create all of them again
+                  error_handle:     check if table creation is success or not else raise error
+
+
+Database Update:
+      If database has data
+            * get data from database
+            * check for any updates
+                  * if updates available
+                        * get extra data
+                        * update it to pandas data
+                        * update pandas to database
+                  * get data again from database
+      Else
+            * get data from exchange
+            * write it to database table
+            * can get data from database or use the data fetched from exchange.
+      in utils: timeframe, market pair(get what data to get i.e timeframe and market pair and)
+            * Check if there is any data(Table)(json) in database for a specified market pair and timeframe
+                  * check until when the data is stored you can use update function(Modified)
+                  * get the date or time from which to be added
+                  * Download the data
+                  * Update the data to database
+            * If not get data with default configuration.
+                  * Update or add it to database
+Database put:
+      in utils: timeframe, market pair(get what data to get i.e timeframe and market pair and)
+            * Database Update must be done first
+            * Check if specified table is present
+            * Get data from database for specified interval
+            * format the collected data to required format
+
+
+DONE :
+      1. Make interface for working with dict of pandas DataFrame with sqlite3 out of main.py ( utils )
+
+      data.py function :
+            Data class :  database , config , Exchange , MarketPair , timeframe , limit , data ,DataType
+                  * Create object of Data class.
+                  * Get data from database for -- klines , indicators , ticks , depth_snapshot , logging , results(any).
+                        1. Check if database is up to date or not and does it have data for the specified timeframe and market pair
+                              * if not update it
+                              * else get data from database
+                  * If data is not present in database get it from exchange
+                  * Write it to database.
+                  * Use data from database or exchange.
+                  * write to Logging table about the data collected from exchange or database.
+
+
+                  * For each timeframe
+                        * Check updates for this timeframe
+                        * If updates available
+                              * Get extra data
+                              * Update it to pandas data
+                              * Update pandas to database
+                        * else
+                              * Get data from database
+                  or 
+                  REAL :
+                        * For each timeframe
+                              * Check updates for this timeframe in database -> return if data base is new(No data)
+                              * Write limit update to self.limit of that timeframe
+                        * Get data from exchange for each timeframe and specified market pair and "limit".
+                        * convert to pandas
+                        * Write to database
+                        * If database is new:
+                              * use the converted pandas data
+                        * else
+                              * use the data from database for the specified timeframe and market pair and limit and convert to pandas data.
+                        * Write to Logging table about the data collected from exchange or database.
+
+TODO #6 :
+      * Update Trend calculations.
+      * Create logging for database read and write.
+      * Create logging for exchange read.
+      * Create doc string for required functions that might not be changed.
+      * Update README.md file.
+      # Handle internet connection error while fetching data from exchange.
+Fixed-FIXME :
+      * Error showing config.json file not found when running for the fist time (without data.db file).
+
+Update : trend    --
+* Dependence on technical : 
+            1. RSI
+                  * RSI price slope 
+            2. Ema short and long - is ema more(down trend) or less(up trend) and ema present is less than before(down trend) or more than  before(up trend)
+            3. Macd - histogram
+            4. Aroon -upper and lower
+            5. Resistance and support levels
+* Mathematical dependence :
+            1. RSI --  min(RSI)=20,max(RSI)=80                                                        = x -> Directly proportional to the trend
+               Should only check in higher timeframe(Relatively) : more than 15 min always.(I.e informative)
+                  * Check Slope of present value of RSI and previous local min or max
+                  * Check present value of price and previous local min or max.
+                  * if slop difference (rsi_slope-price_slope) is negative:
+                        * Then the trend reversal may happen                                          = x1 -> Inversely proportional to the trend
+                    else:
+                        * The trend is not changing                                                   = x2 -> Directly proportional to the trend
+                  
+            2.    * present value - Ema_short                                                         = a -> Directly proportional to the trend
+                  * present value - Ema_long                                                          = b -> Directly proportional to the trend
+                  * EMA_short_Previous - EMA_short_Current                                            = c -> Directly proportional to the trend
+                  * EMA_long_Previous - EMA_long_Current                                              = d -> Directly proportional to the trend
+            3. Macd - histogram                                                                       = y/asset price #FIXME -> Directly proportional to the trend
+            4. Aroon -upper and lower -- aroon_up                                                     = min(0),max(100) = z1 -> Directly proportional to the trend
+                                          aroon_down = min(0),max(100)                                 = 1/z2 -> Inversely proportional to the trend
+            5. Resistance and support levels                                                          =  (resistance    - present value) -- max(resistance-support)                                                                     -> Directly proportional to the trend = 1/k1
+                                                                                                      1/(present value - support)           -- min(0) -> Inversely proportional to the trend = k2
+* Functions : 
+      RSI :
+            * parameters -> self,RSI(present)
+            * function -> Check if RSI is in local min or max
+            * return -> RSI(present)
+      RSI_Price_Slope: More weight
+            * parameters -> self,RSI(informative_all),close_prices(informative_all)
+            * function ->* call get_slope(RSI)
+                        * call get_slope(close_prices)
+                        slope_difference = slope_RSI - slope_close_prices
+                        if slope_difference is negative:
+                              * return 1/slope_difference
+                        elsif slope_difference is positive:
+                              * return slope_difference
+                        else:
+                              * return 0
+      Ema_short :
+            * parameters -> self,ema_short(present),value(present)
+            * function->------------------------------------------Need to add functionality to check n previous values and get the average of them.(difference).
+                        * difference = present value - ema_short
+                        return difference
+      Ema_long :
+            * parameters -> self,ema_long(present),value(present)-----last n values
+            * function->------------------------------------------Need to add functionality to check n previous values and get the average of them.(difference).
+                        * difference = present value - ema_long
+                        return difference
+      EMA_short_Previous :
+            * parameters -> self,ema_short_Previous(present),ema_short_current(present)---last n values
+            * function->------------------------------------------Need to add functionality to check n previous values and get the average of them.(difference).
+                        * difference = ema_short_current - ema_short_Previous
+                        return difference
+      EMA_long_Previous :
+            * parameters -> self,ema_long_Previous(present),ema_long_current(present)---last n values
+            * function->------------------------------------------Need to add functionality to check n previous values and get the average of them.(difference).
+                        * difference = ema_long_current - ema_long_Previous
+                        return difference
+      Macd :
+            * parameters -> self, macd_histogram(present)
+            * function -> 
+                        * return macd_histogram(divide it by present price in trend)
+      Aroon_up :
+            * parameters -> self,aroon_up(present)
+            * function -> 
+                        * return aroon_up
+      Aroon_down :
+            * parameters -> self,aroon_down(present)
+            * function -> 
+                        * return 1/aroon_down
+      Resistance and support :
+            * parameters -> self,resistance(all),support(all),High(all),present_value(present)
+            * function -> 
+                        * near_to_s =resistance    - present value
+                        * near_to_r =1/(present value - support)
+                        * touched_r = touch(resistance,price(all),up)
+                        * touched_s = touch(support,price(all),down)
+                        * difference = near_to_s - near_to_r
+                        if difference is negative:
+                              * difference= 1/(present_time-touched_r time)
+                        elif difference is positive:
+                              * difference= present_time-touched_s time
+                        else:
+                              * difference= 1
+                        return near_to_r*difference*touched_r
+      Touch :
+            * parameters -> self,touching,prices,side
+            * function -> 
+                  if side is up:
+                        * for each_price in prices:(should iterate from present val to past)
+                              if prices>touching:
+                                    * return index(prices)
+                        # if not touched the resistance level
+                        return 1
+                  elif side is down:
+                        * for each_price in prices:(should iterate from present val to past)
+                              if prices<touching:
+                                    * return index(prices)       
+                        # if not touched the support level
+                        return 1
+      Make_trend :
+            * all parameters to make = 
+Indicators Update process:
+      * Get table name for that indicator
+      * Check if data is present in database or not
+      if true:
+            * Check if data is new or not
+                  * if not new
+                        * Get Klines for specified timeframe and limit
+                        * Calculate the indicators
+                        * Write to database ---- constraint : Write to database only the new data(need a function to do so)
+                  * else
+                        * use that data
+      else:
+            * Should have klines data(as Klines is first entrance to program no problem with this test case(if klines not present))
+            in database
+            * Get all klines data from database/exchange 
+            * use it to calculate indicators
+            * Write the indicators to database
+            * clip the calculated data by the specified limit
+      * Write to Logging table about the data collected from exchange or database.
+
+Version-2:
+      * Get updates for limits
+      * If first time or no data in database
+            * Get indicators data --
+                  1.Get kline data from database or already fetched data
+                  2.Use the kline data and calculate the indicators.
+                  3.Write the indicators to database
+                  4.Clip the calculated data by the specified limit
+      * else if data is present and need to update
+            * Get indicators data --
+                  1.Get limit data from database or already fetched data
+                  2.Use the limit data and calculate the indicators.
+                  3.clip the pandas data by the specified limit(Update limit)
+
+Atr_change Update for getting data from database: [#11](https://github.com/puneeth714/fourgp_bot/issues/11)
+      * Process:
+      * should inherit from Data class
+            * Connect Exchange i.e set self.Exchange to exchange and call __connect_exchange__() method. --  **Optional when calling outside**
+            * Connect database i.e set self.database to database path and call make_database() method.
+            * Set DataType,MarketPair,Timeframe,Limit values in the for loop.
+            * call database_data function with **data=False**.
+            * set self.data[time+"_"+str(distance)]=data returned.
+
+Atr_change Update 2 for getting data from database: [#11](https://github.com/puneeth714/fourgp_bot/issues/11)
+      * Process :
+      * Should have Inherited AtrChange to Data class
+      * Call get_data() method
+      * In data_select():
+            1.call find_atr()
+      
+Depth_data :
+      TODO:Change the structure of depth_data table 
+      * Write to database format
+            * Timestamp,bids,asks,price_point
+      * What to calculate 
+            * Total bids and asks volumes.
+            * Nearest bid and ask with highest and lowest price volumes.
+
+Trend weight distribution:
+      * present parameters:
+            1.RSI
+            2.RSI_PRICE_SLOPE(not implemented yet).
+            3.EMA:  
+                  * Ema_short
+                  * Ema_long
+                  * EMA_Short_Previous
+                  * EMA_Long_Previous
+            4.MACD
+            5.AROON:
+                  * AROON_UP
+                  * AROON_DOWN
+            6.SUPPORT_RESISTANCE
+      * each parameter overall weight :
+            * values -> value,weight(specified as constants at present , need to work for optimization in future)
+            * value = value returned by the specific indicator/function (check trend module for more info...)
+            * weight= weight of that parameter
+                  * depends on how much this parameter is important to the trend calculations
+                  (i.e how much the trend is sensitive to this parameter)
+                  * Can calculate based on many factors
+                        * By using parameter optimization algorithms like swarm particle,genetic algorithm,Bayesian optimization
+                        grid and random search etc..(can use scikit learn).
+                        * By machine learning using neural networks specifically reinforcement learning. can dynamically set weights.
+            * overall value = parameter_value*weight
+      * For finding min and max of parameters
+            * First we should get the global or local minima and maxima for the specific parameter(eg., indicators).
+            * Multiply the value with weights of the parameter.
+                  i.e overall value
+      * For finding trend :
+            * There can be more than one implementation for this, but i am discussing only about one.
+            * All values are multiplied
+            * This might not be efficient and more complex function can be driven based on differential exponential equations.
+            * equation = (w1.p1).(w2.p2)....
+            * Or equation = (w1.p1)+(w2.p2)....
+            * max(equation) = (w1.max(p1))+(w2.max(p2))....
+            * min(equation) = (w1.min(p1))+(w2.min(p2))....
+            * Converting the discrete values max(equation) , min(equation) , equation into probability distribution.
+            * therefore we can use the probability distribution to find the trend.
+            * probability distribution = 
+                        1. mix(equation)=0
+                        2. equation=equation-min(equation)
+                        3. max(equation)=max(equation)-min(equation)
+                        4. equation=equation/max(equation)
+
+#TODO:
+      1.Zigzag 
+            * need to make more customizable parameters. Like which timeframe to use, configuration for calculating.
+            * need to write data given by Zigzag to database.
+      2.Trend_weight_distribution
+            * change the algorithm to calculate the trend.(Not reliable as of now).
+            * Need to make it more customizable. like getting weights from configuration or optimization techniques.
+      3.Add configuration is it is needed to write the data to database of any data for future use.
+            * By checking the memory space constraints. and comparing with the process of creating it from scratch.(using Klines).
+            * By checking the time constraints.
+Feature     4.Work on the algorithm for strategy.
+            5.Work on the TradeMover functionality.
+            5.Work on the trade executions.
+
+
+Azure todo:
+      1. Write documentation to use the bot. *
+      2. Write its functionality.            *
+      3. Demo video.
+      4. Upload to github.
+      5. Create azure vm.
+      6. Deploy the bot.
+      7. Deploy the bot to azure.
+      8. Update readme with used azure modules.
