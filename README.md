@@ -3,8 +3,8 @@
 A complex market making bot. Which works with both candles and ticks to create signals for cryptocurrency trading.
 But in this project we are able to send signals through api.(Signal's supported are, cryptocurrency prices,Klines,indicators,trend of that coin etc.,)
 
-Api docs : [Visual api requests](http://20.204.67.186:8000/docs/)
-      and  [Api usage documentation](http://20.204.67.186:8000/redoc/)
+Api docs : [Visual api requests](http://52.168.70.31:8000/docs/)
+      and  [Api usage documentation](http://52.168.70.31:8000/redoc/)
 
 #### project url : [four_gp](https://puneeth714.github.io/four_gp/)
 
@@ -106,11 +106,11 @@ https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-
     ![api response](data/images/api4.png)
     ![api response](data/images/api5.png)
 
-  ***TO try out the api check this endpoint in the browser:  [docs](http://20.204.67.186:8000/docs/)***
+  ***TO try out the api check this endpoint in the browser:  [docs](http://52.168.70.31:8000/docs/)***
 
 ## To get api documentation
 
-    check[api docs](http://20.204.67.186:8000/redoc/)
+    check[api docs](http://52.168.70.31:8000/redoc/)
 All this works when the api server is running in your local machine.
 
 # Bot Functionality
