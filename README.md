@@ -1,21 +1,18 @@
-# Fourgp Bot
+# Four_gp Bot
 
 A complex market making bot. Which works with both candles and ticks to create signals for cryptocurrency trading.
 But in this project we are able to send signals through api.(Signal's supported are, cryptocurrency prices,Klines,indicators,trend of that coin etc.,)
 
 Api docs : [Visual api requests](http://20.204.67.186:8000/docs/)
       and  [Api usage documentation](http://20.204.67.186:8000/redoc/)
-      
-#### project url : [fourgp](https://puneeth714.github.io/fourgp_bot/)
+
+#### project url : [four_gp](https://puneeth714.github.io/four_gp/)
 
 ### Demo video link is here :
 
 https://user-images.githubusercontent.com/69947340/152581989-b6672762-ca6c-4844-8547-2d98e08daf36.mp4
 
-
 https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-a5f7-1c81284419c5.mp4
-
-
 
 # Azure/Microsoft Azure tools used:
 
@@ -31,9 +28,11 @@ https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-
 ## Installation
 
 ### prerequisites
+
 ***-              Assuming you have already installed the gcc compiler,cmake tools,python3.8,and pip3.***
 ***within a python env or globally***
-* clone the repository [fourgp-bot](https://github.com/puneeth714/fourgp_bot.git)
+
+* clone the repository [four_gp-bot](https://github.com/puneeth714/four_gp_bot.git)
 * The required dependencies are listed in the [requirements.txt](requirements.txt) file.
 * install the dependencies by running `bash install.sh`.
 * **pip** install is recommended for windows users as install script is for unix or linux users only.
@@ -47,7 +46,7 @@ https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-
 * The output will be printed on the console.
 * Output consists of the following:
   1. trend, indicators, zigzag, and other signals.
-  ![my vscode snapshot](data/images/vscode.png)
+     ![my vscode snapshot](data/images/vscode.png)
 
 ##### signals for all specified timeframe's in the config file
 
@@ -98,9 +97,7 @@ https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-
     {"aroon_5m_1": [["50.0",
     " 42.85714285714286",
     " -7.142857142857143"]]}
-  * To get available indicators20.204.67.186rl -X 'GET'  'http://127.0.0.1:8000/indicators/'  -H 'accept: application/json' ``
-    output:
-    ``{"ema": [9,25,50,100],"rsi": [6,14],"atr": [14],"macd": [1],"aroon": [1]}``
+  * To get available indicators20.204.67.186rl -X 'GET'  'http://127.0.0.1:8000/indicators/'  -H 'accept: application/json' ``output:``{"ema": [9,25,50,100],"rsi": [6,14],"atr": [14],"macd": [1],"aroon": [1]}``
 
     ***check this images for reference***
     ![api request](data/images/api1.png)
