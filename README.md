@@ -10,7 +10,14 @@ Api docs : [Visual api requests](http://52.168.70.31:8000/docs/)
 
 ### Demo video link is here :
 [video](data/video.mp4)
+
 [video2](data/video1.mp4)
+
+Or follow this youtube videos :
+
+![Demo video 1](https://youtu.be/nNLhahqxjkE)
+
+![Demo video 2](https://youtu.be/dEMoImab6nk)
 
 # Azure/Microsoft Azure tools used:
 
