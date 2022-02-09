@@ -8,16 +8,14 @@ Api docs : [Visual api requests](http://52.168.70.31:8000/docs/)
 
 #### project url : [four_gp](https://puneeth714.github.io/four_gp/)
 
+
+
+
+https://user-images.githubusercontent.com/69947340/153253895-6ac8bb9c-729d-4d54-9dcc-de84a4b585b8.mp4
+
+
+
 ### Demo video link is here :
-
-
-
-https://user-images.githubusercontent.com/69947340/153250756-fdea2923-dde2-4506-90fa-8704770736d5.mp4
-
-
-
-https://user-images.githubusercontent.com/69947340/153250820-cd57a052-c08c-4792-b8a4-dacf50b7108b.mp4
-
 
 
 # Azure/Microsoft Azure tools used:
