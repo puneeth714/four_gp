@@ -16,7 +16,7 @@ https://user-images.githubusercontent.com/69947340/153253895-6ac8bb9c-729d-4d54-
 
 
 ### Demo video link is here :
-
+![video](data/video.mp4)
 
 # Azure/Microsoft Azure tools used:
 
