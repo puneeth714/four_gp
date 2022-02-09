@@ -10,9 +10,15 @@ Api docs : [Visual api requests](http://52.168.70.31:8000/docs/)
 
 ### Demo video link is here :
 
-https://user-images.githubusercontent.com/69947340/152581989-b6672762-ca6c-4844-8547-2d98e08daf36.mp4
 
-https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-a5f7-1c81284419c5.mp4
+
+https://user-images.githubusercontent.com/69947340/153250756-fdea2923-dde2-4506-90fa-8704770736d5.mp4
+
+
+
+https://user-images.githubusercontent.com/69947340/153250820-cd57a052-c08c-4792-b8a4-dacf50b7108b.mp4
+
+
 
 # Azure/Microsoft Azure tools used:
 
