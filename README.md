@@ -15,9 +15,9 @@ Api docs : [Visual api requests](http://52.168.70.31:8000/docs/)
 
 Or follow this youtube videos :
 
-![Demo video 1](https://youtu.be/nNLhahqxjkE)
+[Demo video 1](https://youtu.be/nNLhahqxjkE)
 
-![Demo video 2](https://youtu.be/dEMoImab6nk)
+[Demo video 2](https://youtu.be/dEMoImab6nk)
 
 # Azure/Microsoft Azure tools used:
 
