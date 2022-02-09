@@ -18,7 +18,8 @@ https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-
 
 
 ### Demo video link is here :
-![video](data/video.mp4)
+[video](data/video.mp4)
+[video2](data/video1.mp4)
 
 # Azure/Microsoft Azure tools used:
 
