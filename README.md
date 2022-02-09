@@ -10,8 +10,10 @@ Api docs : [Visual api requests](http://52.168.70.31:8000/docs/)
 
 
 
+https://user-images.githubusercontent.com/69947340/152581989-b6672762-ca6c-4844-8547-2d98e08daf36.mp4
 
-https://user-images.githubusercontent.com/69947340/153253895-6ac8bb9c-729d-4d54-9dcc-de84a4b585b8.mp4
+
+https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-a5f7-1c81284419c5.mp4
 
 
 
