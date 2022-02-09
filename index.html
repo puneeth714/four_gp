@@ -1,192 +1,72 @@
 <h1 id="four_gp-bot">Four_gp Bot</h1>
-<p>A complex market making bot. Which works with both candles and ticks to create signals for cryptocurrency trading.
-But in this project we are able to send signals through api.(Signal&#39;s supported are, cryptocurrency prices,Klines,indicators,trend of that coin etc.,)</p>
-<p>Api docs : <a href="http://52.168.70.31:8000/docs/">Visual api requests</a>
-      and  <a href="http://52.168.70.31:8000/redoc/">Api usage documentation</a></p>
-<h4 id="project-url-four_gp-https-puneeth714-github-io-four_gp-">project url : <a href="https://puneeth714.github.io/four_gp/">four_gp</a></h4>
-<p><a href="https://user-images.githubusercontent.com/69947340/153253895-6ac8bb9c-729d-4d54-9dcc-de84a4b585b8.mp4">https://user-images.githubusercontent.com/69947340/153253895-6ac8bb9c-729d-4d54-9dcc-de84a4b585b8.mp4</a></p>
-<h3 id="demo-video-link-is-here-">Demo video link is here :</h3>
-<p><img src="data/video.mp4" alt="video"></p>
-<h1 id="azure-microsoft-azure-tools-used-">Azure/Microsoft Azure tools used:</h1>
-<ul>
-<li><a href="https://code.visualstudio.com/">vscode</a><ul>
-<li>Is a main development environment for this project.Included the vscode configuration files in this project.</li>
-</ul>
-</li>
-<li><a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">azure-cli</a><ul>
-<li>Is a command line interface for Azure.Which is used to access the Azure resources, and virtual machines.</li>
-</ul>
-</li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli">azure-cli-tools</a><ul>
-<li>it is used for the deployment of the bot.</li>
-</ul>
-</li>
-<li>azure linux virtual machine.<ul>
-<li>This is the virtual machine which is used to run the bot.</li>
-</ul>
-</li>
-</ul>
+<p>A complex market making bot. Which works with both candles and ticks to create signals for cryptocurrency trading.</p>
+<p>Api docs : <a href="http://52.168.70.31:8000/docs/">Visual api requests</a> and <a href="http://52.168.70.31:8000/redoc/">Api usage documentation</a></p>
+<p><strong><em>Please check out this link <a href="https://github.com/puneeth714/four_gp/blob/master/README.md">Readme</a> for more details</em></strong></p>
 <h2 id="installation">Installation</h2>
-<h3 id="prerequisites">prerequisites</h3>
-<p><strong><em>-              Assuming you have already installed the gcc compiler,cmake tools,python3.8,and pip3.</em></strong>
-<strong><em>within a python env or globally</em></strong></p>
 <ul>
-<li>clone the repository <a href="https://github.com/puneeth714/four_gp_bot.git">four_gp-bot</a></li>
-<li>The required dependencies are listed in the <a href="requirements.txt">requirements.txt</a> file.</li>
+<li>clone the repository <a href="https://github.com/puneeth714/four_gp.git">four_gp-bot</a></li>
 <li>install the dependencies by running <code>bash install.sh</code>.</li>
-<li><strong>pip</strong> install is recommended for windows users as install script is for unix or linux users only.</li>
+<li><strong>pip</strong> install is recommended for windows users as install script is for unix or linux users.</li>
 <li>But there are some <strong><em>conflicts</em></strong> with pip.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ul>
-<li>To run normally without api, uncomment the last line of the <strong><em>main.py</em></strong> file.</li>
 <li>change the configurations in <code>config.json</code> as per your requirements.</li>
-<li>run the main.py file with <code>python3 main.py</code></li>
-<li>The output will be printed on the console.</li>
-<li>Output consists of the following:<ol>
-<li>trend, indicators, zigzag, and other signals.
-<img src="data/images/vscode.png" alt="my vscode snapshot"></li>
-</ol>
-</li>
+<li>Run the main.py file with <code>python3 main.py</code></li>
 </ul>
-<h5 id="signals-for-all-specified-timeframe-s-in-the-config-file">signals for all specified timeframe&#39;s in the config file</h5>
-<pre><code><span class="hljs-number">1.</span> Indicators values
- <span class="hljs-number">2.</span> kline's
- <span class="hljs-number">3.</span> Trend
- <span class="hljs-number">4.</span> ZigZag values.
-</code></pre><h1 id="api-documentation">Api Documentation</h1>
-<p><strong><em>Note:</em></strong></p>
-<pre><code>  - The given examples works <span class="hljs-keyword">when</span> the api <span class="hljs-keyword">port</span> <span class="hljs-keyword">is</span> opened at <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">8000</span>
-  - You should <span class="hljs-keyword">use</span> your specific <span class="hljs-keyword">port</span> <span class="hljs-keyword">if</span> its <span class="hljs-keyword">not</span> <span class="hljs-keyword">default</span>.
-  - The api <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> secured.(http requests are used)
-</code></pre><ul>
-<li>To start the api server run <code>hypercorn azure_api.py:app --reload</code></li>
-<li><p>Available indicators are:</p>
+<h2 id="trend-calculation">Trend calculation</h2>
+<h1 id="functions">Functions</h1>
 <ul>
-<li>rsi</li>
-<li>macd</li>
-<li>aroon</li>
-<li>macd</li>
+<li>Functions :</li>
 </ul>
-</li>
-<li><p>Available timeframe&#39;s are:</p>
-<ul>
-<li>&quot;1m&quot;,&quot;3m&quot;,&quot;5m&quot;,&quot;4h&quot;,&quot;1d&quot;.</li>
-</ul>
-</li>
-<li><p>Example api call:</p>
-<ul>
-<li><p>Get ping pong request:</p>
-<pre><code>curl -X <span class="hljs-string">'GET'</span>  <span class="hljs-string">http:</span><span class="hljs-comment">//127.0.0.1:8000/ping'</span>
-</code></pre><p>output:
-{&quot;message&quot;:&quot;pong&quot;}</p>
-</li>
-<li><p>Current price of a coin</p>
-<p><code>curl -X &#39;GET&#39;  http://127.0.0.1:8000/coins/BTCUSDT/current_value</code></p>
-</li>
-<li><p>Get Current trend:
-<code>curl -X &#39;GET&#39; &#39;http://127.0.0.1:8000/coins/BTCUSDT&#39; -H &#39;accept: application/json&#39;</code></p>
-<p>output:
-floating value. 500.0</p>
-</li>
-<li><p>Get current indicators:
-<code>curl -X &#39;GET&#39;  &#39;http://127.0.0.1:8000/coins/ETHUSDT/timeframe/5m/indicators/aroon&#39;  -H &#39;accept: application/json&#39;</code></p>
-<p>output:
-{&quot;aroon_5m_1&quot;: [[&quot;50.0&quot;,
-&quot; 42.85714285714286&quot;,
-&quot; -7.142857142857143&quot;]]}</p>
-</li>
-<li><p>To get available indicators20.204.67.186rl -X &#39;GET&#39;  &#39;<a href="http://127.0.0.1:8000/indicators/">http://127.0.0.1:8000/indicators/</a>&#39;  -H &#39;accept: application/json&#39; <code>output:</code>{&quot;ema&quot;: [9,25,50,100],&quot;rsi&quot;: [6,14],&quot;atr&quot;: [14],&quot;macd&quot;: [1],&quot;aroon&quot;: [1]}``</p>
-<p><strong><em>check this images for reference</em></strong>
-<img src="data/images/api1.png" alt="api request">
-<img src="data/images/api2.png" alt="api response">
-<img src="data/images/api3.png" alt="api response">
-<img src="data/images/api4.png" alt="api response">
-<img src="data/images/api5.png" alt="api response"></p>
-</li>
-</ul>
-<p><strong><em>TO try out the api check this endpoint in the browser:  <a href="http://52.168.70.31:8000/docs/">docs</a></em></strong></p>
-</li>
-</ul>
-<h2 id="to-get-api-documentation">To get api documentation</h2>
-<pre><code>check[<span class="hljs-string">api docs</span>](<span class="hljs-link">http://52.168.70.31:8000/redoc/</span>)
-</code></pre><p>All this works when the api server is running in your local machine.</p>
-<h1 id="bot-functionality">Bot Functionality</h1>
-<p>trend    --</p>
-<h2 id="dependence-on-technical-">Dependence on technical :</h2>
-<pre><code><span class="hljs-number">1</span>. RSI
-              * RSI <span class="hljs-built_in">price</span> <span class="hljs-built_in">slope</span>
-        <span class="hljs-number">2</span>. Ema short <span class="hljs-built_in">and</span> long - is ema more(down <span class="hljs-built_in">trend</span>) <span class="hljs-built_in">or</span> less(up <span class="hljs-built_in">trend</span>) <span class="hljs-built_in">and</span> ema present is less than before(down <span class="hljs-built_in">trend</span>) <span class="hljs-built_in">or</span> more than  before(up <span class="hljs-built_in">trend</span>)
-        <span class="hljs-number">3</span>. Macd - histogram
-        <span class="hljs-number">4</span>. Aroon -<span class="hljs-built_in">upper</span> <span class="hljs-built_in">and</span> <span class="hljs-built_in">lower</span>
-        <span class="hljs-number">5</span>. Resistance <span class="hljs-built_in">and</span> support levels
-</code></pre><h2 id="mathematical-dependence-">Mathematical dependence :</h2>
-<h5 id="1-rsi-min-rsi-20-max-rsi-80-x-directly-proportional-to-the-trend">1. RSI --  min(RSI)=20,max(RSI)=80                                                        = x -&gt; Directly proportional to the trend</h5>
-<pre><code>Should only <span class="hljs-keyword">check</span> <span class="hljs-keyword">in</span> higher timeframe(Relatively) : more <span class="hljs-keyword">than</span> <span class="hljs-number">15</span> <span class="hljs-keyword">min</span> always.(I.e informative)
-              * <span class="hljs-keyword">Check</span> Slope <span class="hljs-keyword">of</span> <span class="hljs-keyword">present</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> RSI <span class="hljs-keyword">and</span> previous <span class="hljs-keyword">local</span> <span class="hljs-keyword">min</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">max</span>
-              * <span class="hljs-keyword">Check</span> <span class="hljs-keyword">present</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> price <span class="hljs-keyword">and</span> previous <span class="hljs-keyword">local</span> <span class="hljs-keyword">min</span> <span class="hljs-keyword">or</span> max.
-              * <span class="hljs-keyword">if</span> slop <span class="hljs-keyword">difference</span> (rsi_slope-price_slope) <span class="hljs-keyword">is</span> negative:
-                    * <span class="hljs-keyword">Then</span> the trend reversal may happen                                          = x1 -&gt; Inversely proportional <span class="hljs-keyword">to</span> the trend
-                <span class="hljs-keyword">else</span>:
-                    * The trend <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> changing                                                   = x2 -&gt; Directly proportional <span class="hljs-keyword">to</span> the trend
-</code></pre><h5 id="2-present-value-ema_short-a-directly-proportional-to-the-trend">2.    * present value - Ema_short                                                         = a -&gt; Directly proportional to the trend</h5>
-<pre><code>* present <span class="hljs-built_in">value</span> - Ema_long                                                          = b -&gt; Directly proportional <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> trend
-              * EMA_short_Previous - EMA_short_Current                                            = c -&gt; Directly proportional <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> trend
-              * EMA_long_Previous - EMA_long_Current                                              = d -&gt; Directly proportional <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> trend
-</code></pre><h5 id="3-macd-histogram-y-asset-price-fixme-directly-proportional-to-the-trend">3. Macd - histogram                                                                       = y/asset price #FIXME -&gt; Directly proportional to the trend</h5>
-<h5 id="4-aroon-upper-and-lower-aroon_up-min-0-max-100-z1-directly-proportional-to-the-trend">4. Aroon -upper and lower -- aroon_up                                                     = min(0),max(100) = z1 -&gt; Directly proportional to the trend</h5>
-<pre><code>aroon_down = <span class="hljs-built_in">min</span>(<span class="hljs-number">0</span>),<span class="hljs-built_in">max</span>(<span class="hljs-number">100</span>)                                 = <span class="hljs-number">1</span>/z2 -&gt; Inversely proportional <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> trend
-</code></pre><h5 id="5-resistance-and-support-levels-resistance-present-value-max-resistance-support-directly-proportional-to-the-trend-1-k1">5. Resistance and support levels                                                          =  (resistance    - present value) -- max(resistance-support)                                                                     -&gt; Directly proportional to the trend = 1/k1</h5>
-<pre><code><span class="hljs-number">1</span>/<span class="hljs-function"><span class="hljs-params">(present value - support)</span>           -- <span class="hljs-title">min</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span> -&gt;</span> Inversely proportional <span class="hljs-keyword">to</span> the trend = k2
-</code></pre><h2 id="functions-">Functions :</h2>
-<h3 id="rsi-">RSI :</h3>
-<pre><code>* <span class="hljs-function"><span class="hljs-title">parameters</span> -&gt;</span> self,RSI(present)
-        * <span class="hljs-function"><span class="hljs-title">function</span> -&gt;</span> Check <span class="hljs-keyword">if</span> RSI <span class="hljs-keyword">is</span> <span class="hljs-built_in">in</span> local min <span class="hljs-built_in">or</span> max
-        * <span class="hljs-function"><span class="hljs-title">return</span> -&gt;</span> RSI(present)
-</code></pre><h3 id="rsi_price_slope-more-weight">RSI_Price_Slope: More weight</h3>
-<pre><code>* parameters -&gt; self,RSI(informative_all),close_prices(informative_all)
-        * <span class="hljs-keyword">function</span> <span class="hljs-title">-&gt;*</span> call get_slope(RSI)
+<h4 id="rsi-">RSI :</h4>
+<pre><code>* parameters<span class="hljs-function"> -&gt;</span> self,RSI(present)
+        * <span class="hljs-keyword">function</span><span class="hljs-function"> -&gt;</span> Check <span class="hljs-keyword">if</span> RSI <span class="hljs-keyword">is</span> <span class="hljs-keyword">in</span> local min <span class="hljs-keyword">or</span> max
+        * <span class="hljs-keyword">return</span><span class="hljs-function"> -&gt;</span> RSI(present)
+  <span class="hljs-comment"># RSI_Price_Slope: More weight</span>
+        * parameters<span class="hljs-function"> -&gt;</span> self,RSI(informative_all),close_prices(informative_all)
+        * <span class="hljs-keyword">function</span><span class="hljs-function"> -&gt;*</span> call get_slope(RSI)
                     * call get_slope(close_prices)
                     slope_difference = slope_RSI - slope_close_prices
-                    if slope_difference <span class="hljs-keyword">is</span> negative:
+                    <span class="hljs-keyword">if</span> slope_difference <span class="hljs-keyword">is</span> negative:
                           * <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>/slope_difference
-                    <span class="hljs-keyword">elsif</span> slope_difference <span class="hljs-keyword">is</span> positive:
+                    elsif slope_difference <span class="hljs-keyword">is</span> positive:
                           * <span class="hljs-keyword">return</span> slope_difference
-                    <span class="hljs-keyword">else</span>:
+                    else:
                           * <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
-</code></pre><h3 id="ema_short-">Ema_short :</h3>
+</code></pre><h4 id="ema_short-">Ema_short :</h4>
 <pre><code>* parameters -&gt; self,ema_short(present),value(present)
         * function-&gt;------------------------------------------Need to<span class="hljs-built_in"> add </span>functionality to<span class="hljs-built_in"> check </span>n previous values<span class="hljs-built_in"> and </span>get the average of them.(difference).
                     * difference = present value - ema_short
                    <span class="hljs-built_in"> return </span>difference
-</code></pre><h3 id="ema_long-">Ema_long :</h3>
+</code></pre><h4 id="ema_long-">Ema_long :</h4>
 <pre><code>* parameters -&gt; self,ema_long(present),value(present)-----last n values
         * function-&gt;------------------------------------------Need to<span class="hljs-built_in"> add </span>functionality to<span class="hljs-built_in"> check </span>n previous values<span class="hljs-built_in"> and </span>get the average of them.(difference).
                     * difference = present value - ema_long
                    <span class="hljs-built_in"> return </span>difference
-</code></pre><h3 id="ema_short_previous-">EMA_short_Previous :</h3>
+</code></pre><h4 id="ema_short_previous-">EMA_short_Previous :</h4>
 <pre><code>* parameters -&gt; self,ema_short_Previous(present),ema_short_current(present)---last n values
         * function-&gt;------------------------------------------Need to<span class="hljs-built_in"> add </span>functionality to<span class="hljs-built_in"> check </span>n previous values<span class="hljs-built_in"> and </span>get the average of them.(difference).
                     * difference = ema_short_current - ema_short_Previous
                    <span class="hljs-built_in"> return </span>difference
-</code></pre><h3 id="ema_long_previous-">EMA_long_Previous :</h3>
+</code></pre><h4 id="ema_long_previous-">EMA_long_Previous :</h4>
 <pre><code>* parameters -&gt; self,ema_long_Previous(present),ema_long_current(present)---last n values
         * function-&gt;------------------------------------------Need to<span class="hljs-built_in"> add </span>functionality to<span class="hljs-built_in"> check </span>n previous values<span class="hljs-built_in"> and </span>get the average of them.(difference).
                     * difference = ema_long_current - ema_long_Previous
                    <span class="hljs-built_in"> return </span>difference
-</code></pre><h3 id="macd-">Macd :</h3>
+</code></pre><h4 id="macd-">Macd :</h4>
 <pre><code>* parameters -&gt; self, macd_histogram(present)
         * <span class="hljs-function"><span class="hljs-keyword">function</span> -&gt;</span>
                     * <span class="hljs-literal">return</span> macd_histogram(<span class="hljs-built_in">divide</span> <span class="hljs-keyword">it</span> <span class="hljs-keyword">by</span> present price <span class="hljs-keyword">in</span> trend)
-</code></pre><h3 id="aroon_up-">Aroon_up :</h3>
+</code></pre><h4 id="aroon_up-">Aroon_up :</h4>
 <pre><code>* parameters -&gt; self,aroon_up(present)
         * <span class="hljs-keyword">function</span> <span class="hljs-title">-&gt;</span>
                     * <span class="hljs-keyword">return</span> <span class="hljs-type">aroon_up</span>
-</code></pre><h3 id="aroon_down-">Aroon_down :</h3>
+</code></pre><h4 id="aroon_down-">Aroon_down :</h4>
 <pre><code>* parameters -&gt; self,aroon_down(present)
         * <span class="hljs-keyword">function</span> <span class="hljs-title">-&gt;</span>
                     * <span class="hljs-keyword">return</span> <span class="hljs-type">1/aroon_down</span>
-</code></pre><h3 id="resistance-and-support-">Resistance and support :</h3>
+</code></pre><h4 id="resistance-and-support-">Resistance and support :</h4>
 <pre><code>* parameters -&gt; self,resistance(<span class="hljs-built_in">all</span>),support(<span class="hljs-built_in">all</span>),High(<span class="hljs-built_in">all</span>),present_value(<span class="hljs-built_in">present</span>)
         * <span class="hljs-function"><span class="hljs-keyword">function</span></span> -&gt;
                     * near_to_s =resistance    - <span class="hljs-built_in">present</span> <span class="hljs-keyword">value</span>
@@ -201,7 +81,7 @@ floating value. 500.0</p>
                     <span class="hljs-keyword">else</span>:
                           * difference= <span class="hljs-number">1</span>
                     <span class="hljs-keyword">return</span> near_to_r*difference*touched_r
-</code></pre><h3 id="touch-">Touch :</h3>
+</code></pre><h4 id="touch-">Touch :</h4>
 <pre><code>* parameters<span class="hljs-function"> -&gt;</span> self,touching,prices,side
         * <span class="hljs-keyword">function</span><span class="hljs-function"> -&gt;</span>
               <span class="hljs-keyword">if</span> side <span class="hljs-keyword">is</span> up:
@@ -214,12 +94,12 @@ floating value. 500.0</p>
                     * <span class="hljs-keyword">for</span> each_price <span class="hljs-keyword">in</span> prices:(should iterate <span class="hljs-keyword">from</span> present val <span class="hljs-keyword">to</span> past)
                           <span class="hljs-keyword">if</span> prices&lt;touching:
                                 * <span class="hljs-keyword">return</span> index(prices)
-<span class="hljs-comment"># if not touched the support level</span>
+                    <span class="hljs-comment"># if not touched the support level</span>
                     <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
-</code></pre><h3 id="make_trend-">Make_trend :</h3>
-<pre><code>* <span class="hljs-keyword">all</span> parameters <span class="hljs-keyword">to</span> <span class="hljs-keyword">make</span> = Pending
-</code></pre><p>Indicators Update process:</p>
-<pre><code>  * Get table name <span class="hljs-keyword">for</span> that indicator
+</code></pre><h4 id="make_trend-">Make_trend :</h4>
+<pre><code>* <span class="hljs-keyword">all</span> parameters <span class="hljs-keyword">to</span> <span class="hljs-keyword">make</span> = Add <span class="hljs-keyword">up</span> <span class="hljs-keyword">all</span> the parameters
+</code></pre><h2 id="indicators-update-process-">Indicators Update process:</h2>
+<pre><code>* Get table name <span class="hljs-keyword">for</span> that indicator
   * Check <span class="hljs-keyword">if</span> data is present <span class="hljs-keyword">in</span> database <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span>
   <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span>:
         * Check <span class="hljs-keyword">if</span> data is <span class="hljs-built_in">new</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span>
@@ -237,4 +117,32 @@ floating value. 500.0</p>
         * Write <span class="hljs-keyword">the</span> indicators <span class="hljs-built_in">to</span> database
         * clip <span class="hljs-keyword">the</span> calculated data <span class="hljs-keyword">by</span> <span class="hljs-keyword">the</span> specified limit
   * Write <span class="hljs-built_in">to</span> Logging table about <span class="hljs-keyword">the</span> data collected <span class="hljs-built_in">from</span> exchange <span class="hljs-keyword">or</span> database.
-</code></pre>
+</code></pre><h1 id="version-2-">Version-2:</h1>
+<pre><code>* Get updates <span class="hljs-keyword">for</span> limits
+  * If <span class="hljs-keyword">first</span> <span class="hljs-built_in">time</span> <span class="hljs-keyword">or</span> no data <span class="hljs-keyword">in</span> database
+        * Get indicators data <span class="hljs-comment">--</span>
+              <span class="hljs-number">1.</span>Get kline data <span class="hljs-built_in">from</span> database <span class="hljs-keyword">or</span> already fetched data
+              <span class="hljs-number">2.</span>Use <span class="hljs-keyword">the</span> kline data <span class="hljs-keyword">and</span> calculate <span class="hljs-keyword">the</span> indicators.
+              <span class="hljs-number">3.</span>Write <span class="hljs-keyword">the</span> indicators <span class="hljs-built_in">to</span> database
+              <span class="hljs-number">4.</span>Clip <span class="hljs-keyword">the</span> calculated data <span class="hljs-keyword">by</span> <span class="hljs-keyword">the</span> specified limit
+  * <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> data is present <span class="hljs-keyword">and</span> need <span class="hljs-built_in">to</span> update
+        * Get indicators data <span class="hljs-comment">--</span>
+              <span class="hljs-number">1.</span>Get limit data <span class="hljs-built_in">from</span> database <span class="hljs-keyword">or</span> already fetched data
+              <span class="hljs-number">2.</span>Use <span class="hljs-keyword">the</span> limit data <span class="hljs-keyword">and</span> calculate <span class="hljs-keyword">the</span> indicators.
+              <span class="hljs-number">3.</span>clip <span class="hljs-keyword">the</span> pandas data <span class="hljs-keyword">by</span> <span class="hljs-keyword">the</span> specified limit(Update limit)
+</code></pre><h2 id="atr_change-update-for-getting-data-from-database-11-https-github-com-puneeth714-four_gp_bot-issues-11-">Atr_change Update for getting data from database: <a href="https://github.com/puneeth714/fourgp_bot/issues/11">#11</a></h2>
+<pre><code>* Process:
+  * should inherit <span class="hljs-keyword">from</span> Data <span class="hljs-keyword">class</span>
+        * Connect Exchange i.e <span class="hljs-keyword">set</span> self.Exchange <span class="hljs-keyword">to</span> exchange <span class="hljs-keyword">and</span> call__connect_exchange__() method. --  **<span class="hljs-keyword">Optional</span> <span class="hljs-keyword">when</span> calling outside**
+        * Connect database i.e <span class="hljs-keyword">set</span> self.database <span class="hljs-keyword">to</span> database path <span class="hljs-keyword">and</span> <span class="hljs-keyword">call</span> make_database() method.
+        * <span class="hljs-keyword">Set</span> DataType,MarketPair,Timeframe,Limit values <span class="hljs-keyword">in</span> the <span class="hljs-keyword">for</span> <span class="hljs-keyword">loop</span>.
+        * <span class="hljs-keyword">call</span> database_data <span class="hljs-keyword">function</span> <span class="hljs-keyword">with</span> **data=<span class="hljs-literal">False</span>**.
+        * <span class="hljs-keyword">set</span> self.data[time+<span class="hljs-string">"_"</span>+str(distance)]=data returned.
+</code></pre><h2 id="atr_change-update-2-for-getting-data-from-database-11-https-github-com-puneeth714-four_gp_bot-issues-11-">Atr_change Update 2 for getting data from database: <a href="https://github.com/puneeth714/fourgp_bot/issues/11">#11</a></h2>
+<pre><code>* Process :
+  * Should have <span class="hljs-keyword">Inherited</span> AtrChange <span class="hljs-keyword">to</span> Data <span class="hljs-keyword">class</span>
+  * Call get_data() <span class="hljs-function"><span class="hljs-keyword">method</span>
+  * <span class="hljs-title">In</span> <span class="hljs-title">data_select</span><span class="hljs-params">()</span>:</span>
+        <span class="hljs-number">1</span>.call find_atr()
+</code></pre><h2 id="license">License</h2>
+<p><strong>GNU General Public License version 3</strong></p>
