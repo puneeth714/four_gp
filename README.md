@@ -8,15 +8,6 @@ Api docs : [Visual api requests](http://52.168.70.31:8000/docs/)
 
 #### project url : [four_gp](https://puneeth714.github.io/four_gp/)
 
-
-
-https://user-images.githubusercontent.com/69947340/152581989-b6672762-ca6c-4844-8547-2d98e08daf36.mp4
-
-
-https://user-images.githubusercontent.com/69947340/152582012-0b115e15-4166-4a46-a5f7-1c81284419c5.mp4
-
-
-
 ### Demo video link is here :
 [video](data/video.mp4)
 [video2](data/video1.mp4)
