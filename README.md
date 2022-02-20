@@ -1,5 +1,9 @@
 # Four_gp Bot
 
+# Demo url (Check readme for demo video) ![demo](https://puneeth714.github.io/four_gp/)
+
+
+
 A complex market making bot. Which works with both candles and ticks to create signals for cryptocurrency trading.
 But in this project we are able to send signals through api.(Signal's supported are, cryptocurrency prices,Klines,indicators,trend of that coin etc.,)
 
