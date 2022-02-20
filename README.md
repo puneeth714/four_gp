@@ -1,6 +1,6 @@
 # Four_gp Bot
 
-# Demo url (Check readme for demo video) ![demo](https://puneeth714.github.io/four_gp/)
+# Demo url (Check readme for demo video) [demo](https://puneeth714.github.io/four_gp/)
 
 
 
