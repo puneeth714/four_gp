@@ -19,17 +19,24 @@ Or follow this youtube videos :
 
 [Demo video 2](https://youtu.be/dEMoImab6nk)
 
+
 # Azure/Microsoft Azure tools used:
 
 - [vscode](https://code.visualstudio.com/)
   * Is a main development environment for this project.Included the vscode configuration files in this project.
+  All the screenshot given below are written in vscode only.And github extenstion is used to interact with github for syncing the code.
 - [azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+  * Azure cli is used for creating the virtual machine , starting the ssh in virtual machine and connecting to the vm.All this process is in this video
   * Is a command line interface for Azure.Which is used to access the Azure resources, and virtual machines.
 - [azure-cli-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+  * azure cli tools is an extension for vscode , usefull for creating azure seviceses from the vscode it self, i have used this while debuging my project
   * it is used for the deployment of the bot.
 - azure linux virtual machine.
+  * azure linux vm is the one i deployed my code and the bot is presntly running on it.all the api requests are provided from that virtual machine only.
   * This is the virtual machine which is used to run the bot.
-
+  # Proof for using azure tools
+  
+  
 ## Installation
 
 ### prerequisites
