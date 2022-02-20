@@ -3,12 +3,13 @@
 A complex market making bot. Which works with both candles and ticks to create signals for cryptocurrency trading.
 But in this project we are able to send signals through api.(Signal's supported are, cryptocurrency prices,Klines,indicators,trend of that coin etc.,)
 
-Api docs : [Visual api requests](http://52.168.70.31:8000/docs/)
-      and  [Api usage documentation](http://52.168.70.31:8000/redoc/)
+Api docs : [Visual api requests](http://20.81.17.41:8080/docs/)
+      and  [Api usage documentation](http://20.81.17.41:8080/redoc/)
 
 #### project url : [four_gp](https://puneeth714.github.io/four_gp/)
 
 ### Demo video link is here :
+
 [video](data/video.mp4)
 
 [video2](data/video1.mp4)
@@ -18,6 +19,7 @@ Or follow this youtube videos :
 [Demo video 1](https://youtu.be/nNLhahqxjkE)
 
 [Demo video 2](https://youtu.be/dEMoImab6nk)
+
 
 
 # Azure/Microsoft Azure tools used:
@@ -35,8 +37,20 @@ Or follow this youtube videos :
   * azure linux vm is the one i deployed my code and the bot is presntly running on it.all the api requests are provided from that virtual machine only.
   * This is the virtual machine which is used to run the bot.
   # Proof for using azure tools
-  
-  
+
+
+https://user-images.githubusercontent.com/69947340/154851226-84eba534-3e8a-49a9-80a7-476518c02c91.mp4
+
+
+https://user-images.githubusercontent.com/69947340/154851291-5878bf27-c19d-4773-8ffb-4081a60b296e.mp4
+
+
+
+https://user-images.githubusercontent.com/69947340/154851313-ceb4d96a-937e-46cd-95b4-8d39bbf9cd9f.mp4
+
+
+
+
 ## Installation
 
 ### prerequisites
@@ -118,11 +132,11 @@ Or follow this youtube videos :
     ![api response](data/images/api4.png)
     ![api response](data/images/api5.png)
 
-  ***TO try out the api check this endpoint in the browser:  [docs](http://52.168.70.31:8000/docs/)***
+  ***TO try out the api check this endpoint in the browser:  [docs](http://20.81.17.41:8080/docs/)***
 
 ## To get api documentation
 
-    check[api docs](http://52.168.70.31:8000/redoc/)
+    check[api docs](http://20.81.17.41:8080/redoc/)
 All this works when the api server is running in your local machine.
 
 # Bot Functionality
