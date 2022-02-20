@@ -30,6 +30,11 @@ Or follow this youtube videos :
 - [azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
   * Azure cli is used for creating the virtual machine , starting the ssh in virtual machine and connecting to the vm.All this process is in this video
   * Is a command line interface for Azure.Which is used to access the Azure resources, and virtual machines.
+  * First i created the vm in azure shell.
+  * Then started it from azure shell online.
+  * Connected to azzure vm using ssh.
+  * Installed the required packages for running the bot.
+  * Executed the bot and started the api service.
 - [azure-cli-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
   * azure cli tools is an extension for vscode , usefull for creating azure seviceses from the vscode it self, i have used this while debuging my project
   * it is used for the deployment of the bot.
